@@ -9,18 +9,18 @@ def queens_prob(board_size):
     def valid_position(position, occupied_pos):
         """checks if position is valid"""
         for i in range(len(occupied_pos)):
-            if (occupied_pos[i] == position or
-                occupied_pos[i] == position - len(occupied_pos) + 1 or
-                occupied_pos[i] + i == position + len(occupied_pos) - 1
-                ):
+            if (
+                occupied_pos[i] == position or
+                occupied_pos[i] == position - len(occupied_pos) or
+                occupied_pos[i] + i == position + len(occupied_pos)
+            ):
                 return False
         return True
 
     def queens_pos(board_size, i, occupied_pos, solutions):
         """place queens"""
         if i == board_size:
-            solutions.append(
-                [(row, col) for row, col in enumerate(occupied_pos)])
+            solutions.append(occupied_pos[:])
             return
         for i in range(board_size):
             if valid_position(i, occupied_pos):
@@ -49,7 +49,7 @@ def main():
 
     solutions = queens_prob(n)
     for solution in solutions:
-        print(solution)
+        print([[i, solution[i]] for i in range(len(solution))])
 
 
 if __name__ == '__main__':

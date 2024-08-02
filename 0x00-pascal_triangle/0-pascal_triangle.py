@@ -8,6 +8,8 @@ def pascal_triangle(n):
     """
     Implement Pascals triangle
     """
+    if n <= 0:
+        return []
     triangle = [[1]]
 
     for _ in range(n-1):

@@ -1,3 +1,8 @@
+#!/usr/bin/python3
+"""0-prime_game module
+"""
+
+
 def sieve_of_eratosthenes(limit):
     """Sieve of Eratosthenes algorithms"""
     prime_numbers = [True] * (limit + 1)
